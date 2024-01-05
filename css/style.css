@@ -1,0 +1,210 @@
+/* strat global */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: sans-serif;
+  background-color: #eee;
+}
+:root {
+  --main-color: #ffad03;
+  --in-place: #ffad03;
+  --not-in-place: #0bbf98;
+  --no: #6f706f;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+li,
+a,
+i {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+}
+/* end global */
+/* strat header */
+header {
+  h1 {
+    text-align: center;
+    padding: 20px;
+    background-color: white;
+    color: black;
+  }
+}
+/* end header */
+/* strat main */
+main {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 30px 10px;
+  padding-bottom: 100px;
+  /* strat section */
+  section {
+    .inputs {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 10px;
+      > div {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 5px;
+        &.disabled {
+          filter: brightness(0.8);
+          pointer-events: none;
+        }
+        > span {
+          font-size: 25px;
+          margin-right: 10px;
+        }
+        > input {
+          width: 40px;
+          height: 40px;
+          border: none;
+          outline: none;
+          font-size: 30px;
+          text-align: center;
+          border-radius: 5px;
+          box-shadow: -1px 2px 4px 0px #00000080;
+          caret-color: var(--main-color);
+          &.in-place {
+            background-color: var(--in-place);
+            color: white;
+          }
+          &.not-in-place {
+            background-color: var(--not-in-place);
+            color: white;
+          }
+          &.no {
+            background-color: var(--no);
+            color: white;
+          }
+        }
+      }
+    }
+    .control {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 15px 0px;
+      button {
+        padding: 10px 0px;
+        font-size: 15px;
+        font-weight: bold;
+        border-radius: 5px;
+        border: none;
+        color: white;
+        cursor: pointer;
+        &:hover {
+          filter: brightness(0.8);
+        }
+        &:disabled {
+          cursor: no-drop;
+          background-color: #6f706f;
+        }
+      }
+      .check {
+        width: 69%;
+        background-color: red;
+      }
+      .hint {
+        width: 29%;
+        background-color: green;
+      }
+    }
+    .message {
+      border-radius: 5px;
+      text-align: center;
+      padding: 10px;
+      background-color: black;
+      color: white;
+      display: none;
+      span {
+        color: var(--main-color);
+      }
+    }
+  }
+  /* end section */
+  /* strat aside */
+  aside {
+    h2 {
+      text-align: center;
+    }
+    > div {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      margin: 10px 0px;
+      padding: 10px;
+      background-color: white;
+      border-radius: 5px;
+      .key {
+        width: 30px;
+        height: 30px;
+        margin-right: 10px;
+        border-radius: 5px;
+        &.in-place {
+          background-color: var(--in-place);
+        }
+        &.not-in-place {
+          background-color: var(--not-in-place);
+        }
+        &.no {
+          background-color: var(--no);
+        }
+      }
+    }
+  }
+  /* end aside */
+}
+/* end main */
+/* strat footer */
+footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  h3 {
+    text-align: center;
+    padding: 20px;
+    background-color: black;
+    color: white;
+    span {
+      color: var(--main-color);
+    }
+  }
+}
+/* end footer */
+@media (max-width: 768px) {
+  main {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  main section .inputs > div {
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  main section .inputs > div > input {
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+  }
+  main section .inputs > div > span {
+    font-size: 20px;
+    margin-right: 6px;
+  }
+}
