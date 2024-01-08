@@ -183,5 +183,5 @@ window.onload = function () {
 // ################################### show-details code ######################################
 let showDetailsBtn = document.querySelector(".show-details");
 showDetailsBtn.addEventListener("click", () => {
-  document.querySelector("aside").classList.toggle("close")
+  document.querySelector("aside").classList.toggle("active")
 })
