@@ -46,10 +46,20 @@ main {
   display: flex;
   justify-content: space-around;
   align-items: flex-start;
-  padding: 30px 10px;
+  padding: 10px 10px;
   padding-bottom: 100px;
   /* strat section */
   section {
+    .category {
+      background-color: white;
+      text-align: center;
+      margin: auto;
+      margin-bottom: 10px;
+      padding: 10px;
+      width: fit-content;
+      border-radius: 5px;
+      box-shadow: -1px 2px 4px 0px #00000080;
+    }
     .inputs {
       display: flex;
       flex-direction: column;
@@ -138,7 +148,20 @@ main {
   }
   /* end section */
   /* strat aside */
+  .show-details {
+    background-color: white;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: fit-content;
+    border-radius: 5px;
+    box-shadow: -1px 2px 4px 0px #00000080;
+  }
   aside {
+    &.close{
+      display: none;
+    }
     h2 {
       text-align: center;
     }
@@ -192,19 +215,24 @@ footer {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-  main section .inputs > div {
-    align-items: flex-start;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  main section .inputs > div > input {
-    width: 30px;
-    height: 30px;
-    font-size: 20px;
-  }
-  main section .inputs > div > span {
-    font-size: 20px;
-    margin-right: 6px;
+    gap: 10px;
+    section .inputs > div {
+      align-items: flex-start;
+      justify-content: center;
+      flex-wrap: wrap;
+      > input {
+        width: 35px;
+        height: 35px;
+        font-size: 25px;
+      }
+      > span {
+        font-size: 25px;
+        margin-right: 6px;
+        width: 60px;
+        height: 35px;
+        display: grid;
+        place-items: center;
+      }
+    }
   }
 }

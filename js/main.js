@@ -6,20 +6,24 @@ document.querySelector("footer h3 span").innerHTML = gameName;
 let numberOfTry = 6;
 let currentTry = 1;
 let hintNumber = 3;
-let wordToGuess =
-  wordArray[Math.floor(Math.random() * wordArray.length)].toUpperCase();
+let randomCategory = category[Math.floor(Math.random() * category.length)];
+let randomWord = Math.floor(Math.random() * WordObject[randomCategory].length);
+let wordToGuess = WordObject[`${randomCategory}`][randomWord];
+// @@@@@@@@@@@@@@@@@@@
+// wordArray[Math.floor(Math.random() * wordArray.length)].toUpperCase();
+// @@@@@@@@@@@@@@@@@@@
 let numberOfLetter = wordToGuess.length;
 let messageArea = document.querySelector(".message");
+let theCategory = document.querySelector(".category");
+theCategory.innerHTML = randomCategory;
 // console.log(wordToGuess);
 
 if (wordToGuess.length <= 4) {
   hintNumber = 1;
-} else if (wordToGuess.length === 5) {
+} else if (wordToGuess.length <= 6) {
   hintNumber = 2;
-} else if (wordToGuess.length === 6) {
-  hintNumber = 3;
 } else if (wordToGuess.length > 6) {
-  hintNumber = 4;
+  hintNumber = 3;
 }
 
 //########################### generate the inputs ##########################
@@ -143,13 +147,10 @@ function hintFunc() {
     let randomIndex = Math.floor(Math.random() * emptyInputs.length);
     let randomInput = emptyInputs[randomIndex];
     let inputToFill = Array.from(enableInputs).indexOf(randomInput);
-    // console.log(randomIndex);
-    // console.log(randomInput);
-    // console.log(inputToFill);
     if (inputToFill !== -1) {
       randomInput.value = wordToGuess[inputToFill].toUpperCase();
       randomInput.classList.add("in-place");
-      randomInput.disabled = true;
+      randomInput.style.pointerEvents = "none";
     }
   }
 }
@@ -171,4 +172,16 @@ document.addEventListener("keydown", handlBackSpace);
 window.onload = function () {
   generateInputs();
 };
-// console.log(thearray["animal"]);
+
+// let rand = Math.floor(Math.random() * category.length);
+// let ggword=WordObject[randomCategory]
+// let randomCategory = category[Math.floor(Math.random() * category.length)]
+// let randomWord = Math.floor(Math.random() * WordObject[randomCategory].length);
+// console.log(randomCategory);
+// console.log(WordObject[`${randomCategory}`][randomWord]);
+// console.log(wordToGuess);
+// ################################### show-details code ######################################
+let showDetailsBtn = document.querySelector(".show-details");
+showDetailsBtn.addEventListener("click", () => {
+  document.querySelector("aside").classList.toggle("close")
+})
